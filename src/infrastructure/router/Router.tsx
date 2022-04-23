@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Login from "src/features/auth/pages/Login/Login";
+import Shop from "src/features/shop/pages/Shop";
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />}></Route>
+        <Route path="/" element={<Shop />}></Route>
       </Routes>
     </BrowserRouter>
   );
