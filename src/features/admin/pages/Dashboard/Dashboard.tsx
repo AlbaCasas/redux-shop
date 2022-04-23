@@ -1,7 +1,9 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import Button from "src/components/Button";
 import Heading from "src/components/Heading";
-import Toast from "src/components/Toast";
+import ToastManager from "src/features/common/interface/components/ToastManager";
+import { actions } from "src/features/common/interface/slice/interface.slice";
 import api from "src/services/api";
 
 interface SubmitTarget {
@@ -13,6 +15,8 @@ interface SubmitTarget {
 }
 
 const Dashboard = () => {
+  const dispatch = useDispatch();
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const target = event.target as typeof event.target & SubmitTarget;
@@ -24,11 +28,13 @@ const Dashboard = () => {
       price: target.price.value,
       category: target.category.value,
     });
+
+    dispatch(actions.addToast({ title: "Product created", type: "success" }));
   };
 
   return (
     <div className="flex flex-col w-[800px] gap-4 mx-auto">
-      <Toast>hola</Toast>
+      <ToastManager />
       <Heading>Hello, create a product</Heading>
       <form onSubmit={handleSubmit} className="flex flex-col gap-3">
         <input name="name" placeholder="Name" />
