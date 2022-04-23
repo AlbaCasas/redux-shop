@@ -8,7 +8,7 @@ const api = {
     description: string;
     category: string;
   }) => {
-    return client(data, "POST");
+    return client("products", data, "POST");
   },
 };
 
