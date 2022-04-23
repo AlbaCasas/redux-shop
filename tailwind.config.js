@@ -7,15 +7,17 @@ module.exports = {
       lg: "976px",
       xl: "1440px",
     },
-    colors: {
-      primary: "#000",
-      secondary: "#fff",
-      background: "#fff",
-      text: "#555",
-    },
-    fontFamily: {
-      body: ["Roboto", "sans"],
-      heading: ["Montserrat", "sans"],
+    extend: {
+      colors: {
+        primary: "#000",
+        secondary: "#fff",
+        background: "#fff",
+        text: "#555",
+      },
+      fontFamily: {
+        body: ["Roboto", "sans"],
+        heading: ["Montserrat", "sans"],
+      },
     },
     spacing: {
       1: "4px",

@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "src/components/Button";
 import Heading from "src/components/Heading";
+import Toast from "src/components/Toast";
 import api from "src/services/api";
 
 interface SubmitTarget {
@@ -27,6 +28,7 @@ const Dashboard = () => {
 
   return (
     <div className="flex flex-col w-[800px] gap-4 mx-auto">
+      <Toast>hola</Toast>
       <Heading>Hello, create a product</Heading>
       <form onSubmit={handleSubmit} className="flex flex-col gap-3">
         <input name="name" placeholder="Name" />
