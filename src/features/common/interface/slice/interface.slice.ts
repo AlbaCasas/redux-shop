@@ -15,13 +15,13 @@ export const interfaceSlice = createSlice({
   reducers: {
     addToast: (state, { payload }) => {
       const { title, type } = payload;
-      return {
-        ...state,
-        toast: {
-          title,
-          type,
-        },
+      state.toast = {
+        title,
+        type,
       };
+    },
+    closeToast: (state) => {
+      state.toast = null;
     },
   },
 });
