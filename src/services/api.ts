@@ -10,6 +10,9 @@ const api = {
   }) => {
     return client("products", data, "POST");
   },
+  getProducts: async () => {
+    return client("products", null, "GET");
+  },
 };
 
 export default api;
