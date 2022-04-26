@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Button from "src/components/Button";
 import Heading from "src/components/Heading";
-import Text from "src/components/Text/Text";
+import Nav from "src/components/Nav";
 import api from "src/services/api";
 import Product from "../../components/Product";
 
 const Shop = () => {
   const [products, setProducts] = useState([{}]);
+  const navigate = useNavigate();
   console.log(products);
 
   useEffect(() => {
@@ -28,21 +31,34 @@ const Shop = () => {
 
   return (
     <div>
-      <Heading className="text-3xl">Minimalist book</Heading>
+      <Nav />
+      <Heading className="text-2xl text-center md:text-3xl">
+        Gridshop is a beautiful minimalist e-commerce template for your Card
+        website
+      </Heading>
       <div className="mt-3">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
           {products &&
             products.map((product: any) => {
               return (
                 <div key={product.id}>
-                  <Product src={product.image} name={product.name} />
-                  <h1>{product.name}</h1>
-                  <Text>{product.price}</Text>
+                  <Product
+                    src={product.image}
+                    name={product.name}
+                    price={product.price}
+                  />
                 </div>
               );
             })}
         </div>
       </div>
+      <Button
+        onClick={() => {
+          navigate("/admin");
+        }}
+      >
+        Create product
+      </Button>
     </div>
   );
 };
