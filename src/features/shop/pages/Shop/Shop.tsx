@@ -44,6 +44,9 @@ const Shop = () => {
               return (
                 <div key={product.id}>
                   <Product
+                    onClick={() => {
+                      navigate(`details/${product.id}`);
+                    }}
                     src={product.image}
                     name={product.name}
                     price={product.price}
