@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Button from "src/components/Button";
 import Heading from "src/components/Heading";
 import Input from "src/components/Input";
@@ -19,6 +20,7 @@ interface SubmitTarget {
 
 const Dashboard = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -37,7 +39,11 @@ const Dashboard = () => {
 
   return (
     <Layout className="flex flex-col w-[800px] gap-4 mx-auto">
-      <Nav />
+      <Nav
+        onClick={() => {
+          navigate("/");
+        }}
+      />
       <div className="w-full md:w-[400px] self-center flex gap-5 flex-col ">
         <ToastManager />
         <Heading>Hello, create a product</Heading>
@@ -49,7 +55,7 @@ const Dashboard = () => {
             name="description"
             placeholder="Enter a description"
           />
-          <input name="price" placeholder="Price" />
+          <Input name="price" placeholder="Price" />
           <select name="category">
             <option defaultValue="">Choose any option</option>
             <option value="tech">Technology</option>

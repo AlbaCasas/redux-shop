@@ -10,7 +10,7 @@ const Button = ({ children, className, onClick }: ButtonProps) => {
   return (
     <button
       onClick={onClick}
-      className={`text-secondary bg-primary py-1 px-5 ${className}`}
+      className={`text-secondary bg-primary p-3 ${className}`}
     >
       {children}
     </button>

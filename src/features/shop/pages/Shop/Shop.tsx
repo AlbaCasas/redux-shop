@@ -37,7 +37,7 @@ const Shop = () => {
         Gridshop is a beautiful minimalist e-commerce template for your Card
         website
       </Heading>
-      <div className="mt-3">
+      <div className="mt-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
           {products &&
             products.map((product: any) => {
