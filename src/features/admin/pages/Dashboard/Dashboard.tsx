@@ -2,6 +2,9 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import Button from "src/components/Button";
 import Heading from "src/components/Heading";
+import Input from "src/components/Input";
+import Layout from "src/components/Layout";
+import Nav from "src/components/Nav";
 import ToastManager from "src/features/common/interface/components/ToastManager";
 import { actions } from "src/features/common/interface/slice/interface.slice";
 import api from "src/services/api";
@@ -33,22 +36,29 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="flex flex-col w-[800px] gap-4 mx-auto">
-      <ToastManager />
-      <Heading>Hello, create a product</Heading>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-        <input name="name" placeholder="Name" />
-        <input name="image" placeholder="Image" />
-        <textarea name="description" placeholder="Enter a description" />
-        <input name="price" placeholder="Price" />
-        <select name="category">
-          <option defaultValue="">Choose any option</option>
-          <option value="tech">Technology</option>
-          <option value="book">Books</option>
-        </select>
-        <Button>Create</Button>
-      </form>
-    </div>
+    <Layout className="flex flex-col w-[800px] gap-4 mx-auto">
+      <Nav />
+      <div className="w-full md:w-[400px] self-center flex gap-5 flex-col ">
+        <ToastManager />
+        <Heading>Hello, create a product</Heading>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <Input name="name" placeholder="Name" />
+          <Input name="image" placeholder="Image" />
+          <Input
+            className="resize-none"
+            name="description"
+            placeholder="Enter a description"
+          />
+          <input name="price" placeholder="Price" />
+          <select name="category">
+            <option defaultValue="">Choose any option</option>
+            <option value="tech">Technology</option>
+            <option value="book">Books</option>
+          </select>
+          <Button>Create</Button>
+        </form>
+      </div>
+    </Layout>
   );
 };
 

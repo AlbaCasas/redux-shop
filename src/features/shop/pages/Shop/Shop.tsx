@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "src/components/Button";
 import Heading from "src/components/Heading";
+import Layout from "src/components/Layout";
 import Nav from "src/components/Nav";
 import api from "src/services/api";
 import Product from "../../components/Product";
@@ -30,7 +31,7 @@ const Shop = () => {
   }, []);
 
   return (
-    <div>
+    <Layout>
       <Nav />
       <Heading className="text-2xl text-center md:text-3xl">
         Gridshop is a beautiful minimalist e-commerce template for your Card
@@ -59,7 +60,7 @@ const Shop = () => {
       >
         Create product
       </Button>
-    </div>
+    </Layout>
   );
 };
 
