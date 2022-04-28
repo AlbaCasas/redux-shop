@@ -7,7 +7,8 @@ import Layout from "src/components/Layout";
 import Nav from "src/components/Nav";
 import Text from "src/components/Text/Text";
 import ToastManager from "src/features/common/interface/components/ToastManager";
-import { actions } from "src/features/common/interface/slice/interface.slice";
+import { actions as uiActions } from "src/features/common/interface/slice/interface.slice";
+import { actions as shopActions } from "src/features/shop/slice/shop.slice";
 import api from "src/services/api";
 import { ProductDetail } from "../../entities/product";
 
@@ -29,11 +30,12 @@ const Details = () => {
 
   const addProduct = () => {
     dispatch(
-      actions.addToast({
+      uiActions.addToast({
         title: "Product added to cart",
         type: "success",
       })
     );
+    dispatch(shopActions.increment());
   };
 
   return (
