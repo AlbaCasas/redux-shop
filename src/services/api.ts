@@ -13,6 +13,9 @@ const api = {
   getProducts: async () => {
     return client("products", null, "GET");
   },
+  getProduct: async (id: string) => {
+    return client(`products/${id}`, null, "GET");
+  },
 };
 
 export default api;

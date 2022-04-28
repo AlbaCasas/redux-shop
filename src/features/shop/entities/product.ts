@@ -1,6 +1,14 @@
 export interface Product {
-  name: String;
-  image: String;
-  category: String;
-  id: String;
+  name: string;
+  image: string;
+  category: string;
+  id: string;
+}
+
+export interface ProductDetail {
+  name: string;
+  image: string;
+  description: string;
+  price: string;
+  id: string;
 }
